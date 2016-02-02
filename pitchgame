@@ -1,0 +1,105 @@
+//: Playground - noun: a place where people can play
+
+import UIKit
+
+var str = "Hello, playground"
+
+// baseball game
+
+func Swing(Zone1:Int,pitchType:String)
+{
+    
+    
+    var outs = 0
+    var strikes = 0
+    var balls = 0
+    var Zone1:Int
+    var Zone1math:Int
+    if Zone1 == 1 {Zone1math = 14}
+    if Zone1 == 2 {Zone1math = 15}
+    if Zone1 == 3 {Zone1math = 16}
+    if Zone1 == 4 {Zone1math = 9}
+    if Zone1 == 5 {Zone1math = 10}
+    if Zone1 == 6 {Zone1math = 11}
+    if Zone1 == 7 {Zone1math = 4}
+    if Zone1 == 8 {Zone1math = 5}
+    if Zone1 == 9 {Zone1math = 6}
+    
+    
+    var Zone2:Int
+    var pitchType:String
+    var pitchNum:Int
+    
+    // deciding how a pitch will move in 2 dimensions (up/down and left/right) based on the type of pitch thrown
+    if pitchType == "fastball" {pitchNum = 4;Zone2 == Zone1}
+    if pitchType == "2seamfastball" {pitchNum = 2;Zone2 == Zone1 + 1}
+    if pitchType == "curveball" {pitchNum = 126;Zone2 == Zone1 - 15}
+    if pitchType == "slider" {pitchNum = 85;Zone2 == Zone1 - 6}
+    if pitchType == "change-up" {pitchNum = 80;Zone2 == Zone1 - 5}
+    if pitchType == "sinker" {pitchNum = 61;Zone2 == Zone1 - 4}
+    if pitchType == "splitfinger" {pitchNum = 81;Zone2 == Zone1 - 10}
+    
+    
+    
+    //
+    if Zone1 = 5 && pitchType = "fastball"
+    {Zone2 = 5}
+    
+    var Swing = false
+    var Contact = false
+    var Fair = true
+    
+    repeat
+    {
+        Swing
+    }
+        while outs < 0
+
+
+    
+    
+
+
+// what is a strike
+        if 4 <= Zone2 <= 6 || 9 <= Zone2 <= 11 || 14 <= Zone2 <= 16  || Swing && !Contact
+            {
+                strikes = ++strikes
+                print("Swinging Strrrrike!")
+            }
+            else if Contact && !Fair && strikes <= 1
+            {
+                strikes = ++strikes
+                print("fouled off. Strike!")
+            }
+            else if Contact && !Fair && strikes > 1
+            {
+                strikes = strikes + 0
+                print("Still 2 strikes")
+            }
+            else
+            {
+                balls = ++balls
+                print("ball.")
+            }
+    
+    
+}
+
+
+
+Swing(5,pitchType:"fastball")
+
+
+
+// func playball()
+// func atBat
+
+/*
+// playball until outs = 3
+do
+{
+    playball
+}
+    while
+    outs < 3
+*/
