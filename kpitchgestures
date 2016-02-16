@@ -1,0 +1,81 @@
+//
+//  ViewController.swift
+//  K app
+//
+//  Created by user115584 on 2/16/16.
+//  Copyright © 2016 user115584. All rights reserved.
+//
+
+import UIKit
+
+
+
+
+
+
+
+class ViewController: UIViewController {
+
+    @IBOutlet weak var Label: UILabel!
+    
+    
+    @IBAction func longPress(sender: AnyObject)
+    {
+    }
+ 
+    @IBOutlet weak var pitchTypeLabel: UILabel!
+    
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view, typically from a nib.
+        
+        
+        var leftSwipe = UISwipeGestureRecognizer(target: self, action: Selector("handleSwipes:"))
+        
+        var downSwipe = UISwipeGestureRecognizer(target: self, action: Selector("handleSwipes:"))
+        var rightSwipe = UISwipeGestureRecognizer(target: self, action: Selector("handleSwipes:"))
+        var upSwipe = UISwipeGestureRecognizer(target: self, action: Selector("handleSwipes:"))
+        
+        var longPress = UILongPressGestureRecognizer(target: self, action: Selector("handleSwipes:"))
+        
+        
+        leftSwipe.direction = .Left
+        rightSwipe.direction = .Right
+        upSwipe.direction = .Up
+        downSwipe.direction = .Down
+        
+        
+        view.addGestureRecognizer(leftSwipe)
+        view.addGestureRecognizer(rightSwipe)
+        view.addGestureRecognizer(upSwipe)
+        view.addGestureRecognizer(downSwipe)
+        
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+
+    
+    func handleSwipes(sender: UISwipeGestureRecognizer) {
+        if (sender.direction == .Left) { pitchTypeLabel.text = "Left Swipe =  Cutter" }
+        if (sender.direction == .Right) { pitchTypeLabel.text = "Right Swipe = 2 Seam Fastball" }
+        if (sender.direction == .Up) { pitchTypeLabel.text = "Up Swipe = 4 seam Also?" }
+        if (sender.direction == .Down) { pitchTypeLabel.text = "Down Swipe = Curveball" }
+        
+    }
+    
+    @IBAction func longpress(sender: UILongPressGestureRecognizer) {
+    
+ 
+        if sender.state == UIGestureRecognizerState.Ended
+        {
+            pitchTypeLabel.text = "Long Press: fastball"
+        }
+    }
+    
+
+}
+
